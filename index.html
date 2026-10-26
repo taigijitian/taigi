@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>台語辭典彙整</title>
-<meta name="description" content="板橋台語家庭：台語查詞與共筆">
+<meta name="description" content="台語辭典彙整：查 9 部台語辭典，查不到的詞可以問大家">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charis+SIL:wght@400;700&family=LXGW+WenKai+TC:wght@400;700&display=swap">
@@ -173,6 +173,10 @@ textarea.input{min-height:84px;resize:vertical}
 .dcard .d-hoa{margin-top:6px;font-size:15px}
 .dcard .d-hoa b{font-weight:500;font-size:12.5px;color:var(--muted);margin-right:6px}
 .dcard .play{width:46px;height:46px}
+.playwrap{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px}
+.playwrap .pl{font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.play.synth{background:transparent;border:1.5px dashed var(--indigo)}
+.outside .links{display:flex;flex-wrap:wrap;gap:6px}
 .srcs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .src{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--paper);color:var(--muted);border:1px solid var(--line)}
 .src.moe{background:var(--indigo-soft);color:var(--indigo);border-color:transparent;font-weight:600}
@@ -200,7 +204,7 @@ textarea.input{min-height:84px;resize:vertical}
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand"><h1 id="appTitle">台語共筆</h1><p id="appSub"></p></div>
+    <div class="brand"><h1 id="appTitle">台語辭典彙整</h1><p id="appSub"></p></div>
     <button class="icon-btn" id="btnSettings" aria-label="設定"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
   </header>
 
@@ -285,7 +289,7 @@ textarea.input{min-height:84px;resize:vertical}
     <button class="primary" type="submit">儲存</button>
     <p class="settings-p" style="margin-top:18px" id="setInfo"></p>
     <button type="button" class="ghost" id="btnReload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>重新整理資料</button>
-    <p class="credits">辭典資料來自 <a href="https://github.com/ChhoeTaigi/ChhoeTaigiDatabase" target="_blank" rel="noopener">ChhoeTaigi 台語字詞資料庫</a>（CC BY-SA 4.0），收錄教育部臺灣台語常用詞辭典（CC BY-ND 3.0 TW）、iTaigi 華台對照典、台華線頂對照典、台日大辭典台譯版、Maryknoll 台英辭典、Embree 台英辭典、甘字典、台灣白話基礎語句、台灣植物名彙。真人錄音來自教育部辭典（CC BY-ND 3.0 TW），經 <a href="https://github.com/DDan32/taigi-audio" target="_blank" rel="noopener">taigi-audio</a> 轉成 MP3。</p>
+    <p class="credits">辭典資料來自 <a href="https://github.com/ChhoeTaigi/ChhoeTaigiDatabase" target="_blank" rel="noopener">ChhoeTaigi 台語字詞資料庫</a>（CC BY-SA 4.0），收錄教育部臺灣台語常用詞辭典（CC BY-ND 3.0 TW）、iTaigi 華台對照典、台華線頂對照典、台日大辭典台譯版、Maryknoll 台英辭典、Embree 台英辭典、甘字典、台灣白話基礎語句、台灣植物名彙。真人錄音來自教育部辭典（CC BY-ND 3.0 TW），經 <a href="https://github.com/DDan32/taigi-audio" target="_blank" rel="noopener">taigi-audio</a> 轉成 MP3。合成讀音由意傳科技「媠聲」服務提供，只會送出要念的台羅拼音。</p>
   </form>
 </section>
 
@@ -553,7 +557,7 @@ function renderDetail(qid) {
   if (!e.ans.length) h += '<div class="none-yet"><span class="han">還沒有人回答</span>你知道怎麼講嗎？按下面的「我來回答」。</div>';
   for (const a of e.ans) {
     h += '<article class="ans"><div class="ans-head"><div class="han">' + (a.hanji ? esc(a.hanji) : '<span style="color:var(--muted);font-size:18px">（未填漢字）</span>') + '</div>' +
-      (a.audio ? '<button class="play" data-audio="' + esc(a.audio) + '" aria-label="播放讀音">' + playIcon + '</button>' : '') + '</div>' +
+      (a.audio ? playBtn('data-audio="' + esc(a.audio) + '"', '錄音', '播放讀音') : ttsText(a.tailo) ? playBtn('data-tts="' + esc(ttsText(a.tailo)) + '"', '合成', '播放合成讀音', true) : '') + '</div>' +
       (a.tailo ? '<div class="rom-row"><span class="tag">台羅</span><span class="rom">' + esc(a.tailo) + '</span></div>' : '') +
       (a.poj ? '<div class="rom-row"><span class="tag">白話字</span><span class="rom">' + esc(a.poj) + '</span></div>' : '') +
       (a.note ? '<p class="ans-note">' + esc(a.note) + '</p>' : '') +
@@ -565,6 +569,7 @@ function renderDetail(qid) {
   body.innerHTML = h;
   fillDict(e.q.zh, $('#detailDict'), 3);
   body.querySelectorAll('[data-audio]').forEach(b => b.onclick = () => playAudio(b));
+  body.querySelectorAll('[data-tts]').forEach(b => b.onclick = () => playTts(b));
   body.querySelectorAll('[data-like]').forEach(b => b.onclick = () => like(b));
   body.querySelectorAll('[data-dela]').forEach(b => b.onclick = () => confirmDel(b, 'a', b.dataset.dela));
   body.querySelectorAll('[data-delq]').forEach(b => b.onclick = () => confirmDel(b, 'q', b.dataset.delq));
@@ -901,7 +906,8 @@ function dictCard(g) {
   return '<article class="dcard"><div class="d-head"><div class="d-words">' +
     (main ? '<div class="han">' + esc(main) + (alt.length ? '<small>' + alt.map(esc).join('、') + '</small>' : '') + '</div>' : '') +
     '<span class="rom">' + esc(g.tl) + '</span><div class="poj"><b>白話字</b>' + esc(g.poj) + '</div></div>' +
-    (g.moe ? '<button class="play" data-moe="' + g.moe + '" aria-label="播放教育部辭典錄音">' + playIcon + '</button>' : '') + '</div>' +
+    (g.moe ? playBtn('data-moe="' + g.moe + '"', '真人', '播放教育部辭典的真人錄音')
+      : ttsText(g.tl) ? playBtn('data-tts="' + esc(ttsText(g.tl)) + '"', '合成', '播放合成讀音', true) : '') + '</div>' +
     (hoa.length ? '<div class="d-hoa"><b>華語</b>' + hoa.map(esc).join('、') + '</div>' : '') +
     '<div class="srcs">' + [...g.srcs].sort((a, b) => a - b).map(s => '<span class="src' + (s === 0 ? ' moe' : '') + '">' + esc(DSRC[s].s) + '</span>').join('') + '</div>' +
     '<details><summary>各辭典的寫法與解說（' + g.items.length + ' 筆）</summary><div class="d-rows">' + rows + '<div class="d-row x">讀音以教育部辭典為準' + moeLink + '</div></div></details></article>';
@@ -922,6 +928,7 @@ function fillDict(q, el, limit) {
       el.innerHTML = gs.slice(0, n).map(dictCard).join('') +
         (gs.length > n ? '<button class="more-btn" type="button">再顯示 ' + Math.min(10, gs.length - n) + ' 種說法（共 ' + gs.length + ' 種）</button>' : '');
       el.querySelectorAll('[data-moe]').forEach(b => b.onclick = () => playMoe(b));
+      el.querySelectorAll('[data-tts]').forEach(b => b.onclick = () => playTts(b));
       const m = el.querySelector('.more-btn'); if (m) m.onclick = () => show(n + 10);
     };
     show(limit);
@@ -947,19 +954,33 @@ async function playMoe(btn) {
   resetPlay(); toast('錄音播不出來。可以展開「各辭典的寫法」，點萌典去聽');
 }
 
+/* ---------- 合成讀音（意傳科技「媠聲」服務） ---------- */
+const TTS_URL = 'https://hapsing.ithuan.tw/bangtsam?taibun=';
+// 取第一種讀音，去掉（替）（白）之類的標記
+const ttsText = t => String(t || '').split('/')[0].replace(/\(.*?\)|（.*?）/g, '').replace(/\s+/g, ' ').trim();
+function playBtn(attr, label, aria, synth) {
+  return '<div class="playwrap"><button class="play' + (synth ? ' synth' : '') + '" ' + attr + ' aria-label="' + aria + '">' + playIcon + '</button><span class="pl">' + label + '</span></div>';
+}
+async function playTts(btn) {
+  if (playingBtn === btn) { player.pause(); resetPlay(); return; }
+  resetPlay(); playingBtn = btn; btn.classList.add('loading');
+  try {
+    player.src = TTS_URL + encodeURIComponent(btn.dataset.tts);
+    await player.play();
+    if (playingBtn !== btn) return;
+    btn.classList.remove('loading'); btn.classList.add('playing'); btn.innerHTML = stopIcon;
+  } catch (e) {
+    if (playingBtn !== btn) return;
+    resetPlay(); toast('合成讀音暫時播不出來。這個服務每人每分鐘大約只能合成 3 次，請過一分鐘再試');
+  }
+}
+
 /* ---------- 一鍵外查 ---------- */
 function outside(q) {
-  const e = encodeURIComponent, g = s => 'https://www.google.com/search?q=' + e(s);
-  const groups = [
-    ['辭典', [['教育部辭典', sutian(q)], ['萌典', 'https://www.moedict.tw/\'' + e(q)], ['iTaigi', itaigi(q)]]],
-    ['公視台語台', [['公視台語台網站', g(q + ' site:taigitv.org.tw')], ['YouTube', 'https://www.youtube.com/results?search_query=' + e(q + ' 公視台語台')]]],
-    ['社群', [['Facebook', 'https://www.facebook.com/search/posts?q=' + e(q + ' 台語')], ['Threads', 'https://www.threads.net/search?q=' + e(q + ' 台語')], ['PTT／Dcard', g(q + ' 台語 (site:ptt.cc OR site:dcard.tw)')]]],
-    ['整個網路', [['Google：怎麼說', g('"' + q + '" 台語 怎麼說')], ['Google：台羅', g('"' + q + '" 台語 台羅')]]]
-  ];
-  return '<section class="outside"><h3>一鍵外查「' + esc(q) + '」</h3>' +
-    groups.map(([t, ls]) => '<div class="og"><span class="ot">' + t + '</span><div class="links">' +
-      ls.map(([n, u]) => '<a class="link-btn" href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(n) + extIcon + '</a>').join('') + '</div></div>').join('') +
-    '<div class="fine">Facebook 和 Threads 要先登入才看得到搜尋結果。</div></section>';
+  const g = s => 'https://www.google.com/search?q=' + encodeURIComponent(s);
+  const ls = [['台語怎麼說', g('"' + q + '" 台語 怎麼說')], ['台羅拼音', g('"' + q + '" 台語 台羅')], ['所有結果', g(q + ' 台語')]];
+  return '<section class="outside"><h3>用 Google 查「' + esc(q) + '」</h3><div class="links">' +
+    ls.map(([n, u]) => '<a class="link-btn" href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(n) + extIcon + '</a>').join('') + '</div></section>';
 }
 
 /* ---------- 啟動 ---------- */
